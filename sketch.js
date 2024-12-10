@@ -1,12 +1,18 @@
+let bubbles = [];
+
 function setup() {
   createCanvas(600, 400);
-  bubble = new Bubble(300, 200, 50); // Single bubble
+  for (let i = 0; i < 10; i++) {
+    bubbles.push(new Bubble(random(width), random(height), random(20, 50)));
+  }
 }
 
 function draw() {
   background(0);
-  bubble.move();
-  bubble.display();
+  for (let bubble of bubbles) {
+    bubble.move();
+    bubble.display();
+  }
 }
 
 class Bubble {
